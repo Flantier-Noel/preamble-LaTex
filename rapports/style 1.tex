@@ -1,0 +1,190 @@
+\documentclass[10pt,a4paper]{report}
+
+\title{In orci ut tincidunt}
+\author{VIVAMUS Lobortis - NULLA Ultrices}
+\date{MMXXV-MMXXVI}
+\def\thesupervisor{QUISQUE Aliquam}
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{dsfont, fancyhdr, color, pifont, tikz}
+\usepackage{xypic}
+\usepackage{thmbox, diagbox}
+\usepackage{stmaryrd}
+\usepackage{mathrsfs, mathabx}
+\usepackage{environ, ifthen}
+\usepackage{multicol}
+\usepackage{tocloft}
+
+\definecolor{gris}{gray}{.5}
+
+\setcounter{secnumdepth}{3}
+
+\usepackage[Conny]{fncychap}
+\ChNameUpperCase
+\ChTitleUpperCase 
+\ChNameVar{\centering\Huge\rm\bfseries} 
+\ChNumVar{\Huge} 
+\ChRuleWidth{2pt} 
+\ChTitleVar{\centering\Huge\rm}
+
+\makeatletter
+\def\newboxtheorem{%
+  \@ifstar\thmbox@new@star\newboxtheorem@nostar}%
+\def\newboxtheorem@nostar{%
+  \@ifnextchar[{\thmbox@newA}{\thmbox@newA[]}}%
+\def\thmbox@new@star{%
+  \@ifnextchar[{\thmbox@new@star@A}{\thmbox@new@star@A[]}}%
+\def\thmbox@new@star@A[#1]#2#3{%
+  \expandafter\def\csname#2\endcsname{%
+    \setkeys{thmbox}{#1}%
+    \@ifnextchar[{\thmbox@star@beginA{#3}{}}{%
+      \thmbox@star@begin{#3}{}}}%
+  \expandafter\def\csname end#2\endcsname{%
+    \endthmbox\smallbreak}} 
+\def\thmbox@star@beginA#1[#2]{%
+  \thmbox@star@begin{#1}{ (#2)}{}}
+\def\thmbox@star@begin#1#2{%
+  \medbreak%
+  \thmbox{\thmbox@headstyle{#1}{\unskip}#2}%
+  \thmbox@bodystyle\ignorespaces}
+\let\newtheorem\newboxtheorem
+\makeatother
+
+\newtheorem[L]{theoreme}{Théorème}
+\newtheorem{lemme}{Lemme}
+\newtheorem{corollaire}{Corollaire}
+
+\theoremstyle{definition}
+\newtheorem[M]{definition}{Définition}
+\newtheorem[M]{definitions}[definition]{Définitions}
+
+\theoremstyle{remark}
+\newtheorem[S]{exemple}{Exemple}
+\newtheorem[S]{exemples}[exemple]{Exemples}
+\newtheorem[S]{remarque}{Remarque}
+\newtheorem[S]{remarques}[remarque]{Remarques}
+
+\renewenvironment{proof}{\setlength{\leftskip}{.3cm}\hspace{-.8cm}\textbf{\Proof :}}{\setlength{\leftskip}{0cm}\hfill\newline\qed}
+
+\setlength{\textwidth}{19cm}
+\setlength{\topmargin}{0.1cm}
+\setlength{\headsep}{0.6cm}
+\setlength{\headheight}{12mm}
+\setlength{\topskip}{0.5cm}
+\setlength{\textheight}{27cm}
+\setlength{\voffset}{-30mm}
+\setlength{\hoffset}{-32mm}
+
+\makeatletter
+\renewcommand{\@cftmaketoctitle}{}
+\makeatother
+\setlength\cftparskip{2pt}
+
+\newcommand{\hidechapter}[0]{\addtocontents{toc}{\protect\setcounter{tocdepth}{-10}}\chapter{\thetitle}\addtocontents{toc}{\protect\setcounter{tocdepth}{4}}}
+
+\AtBeginDocument{\hidechapter}
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\rhead{\textcolor{gris}{\textit{\thedate}}}
+\lhead{\textcolor{gris}{Phasellus laoreet}}
+\chead{\textcolor{gris}{\thetitle}}
+\newcommand{\lignedebut}{\vspace{0pt} \hrulefill \vspace{-7pt}}
+
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{
+  \vspace*{50\p@}
+  {\parindent \z@ \centering \normalfont
+    \hrule height 3pt \vskip 5\p@
+    \hrule height 2pt \vskip 20\p@
+    \interlinepenalty\@M
+    \Huge\bfseries \thetitle\par\nobreak
+    \vskip 15\p@
+    \hrule height 2pt \vskip 5\p@
+    \raggedright\small\theauthor \\[-0.4cm]
+    \raggedleft\normalfont\small\thesupervisor \vskip 20\p@
+  }}
+\makeatother
+
+\renewcommand{\thesection}{\Roman{section})}
+\renewcommand{\thesubsection}{\arabic{subsection})}
+
+\makeatletter
+\renewcommand
+{\subsection}{\@startsection{subsection}{2}{0mm}
+{0\baselineskip}{\baselineskip}
+{\indent\large\bf}}
+\makeatother
+
+\makeatletter
+\renewcommand
+{\subsubsection}{\@startsection{subsubsection}{3}{0mm}
+{\baselineskip}{\baselineskip}
+{\indent\indent\bf}}
+\makeatother
+
+\NewEnviron{introduction}{
+\begin{center}
+    \begin{minipage}{18.5cm}
+    \textbf{Introduction.} \textit{\small\BODY}
+    \end{minipage}
+\end{center}
+}
+
+\newcommand*{\va}{V\!\!A}
+\renewcommand*{\Re}{\text{Re}}
+\renewcommand*{\Im}{\text{Im}}
+\newcommand*{\Arg}{\text{Arg}}
+\newcommand*{\Log}{\text{Log}}
+\newcommand{\tn}[1]{|\!|\!|#1|\!|\!|}
+\newcommand*{\Iff}{\Leftrightarrow}
+\newcommand*{\If}{\Leftarrow}
+\newcommand*{\So}{\Rightarrow}
+\renewcommand*{\arctan}{\text{Arctan }}
+
+\newcommand{\vect}[2]{\left(\!\!\begin{array}{c} #1\\#2 \end{array}\!\!\right)}
+\renewcommand{\matrix}[4]{\left(\begin{array}{cc}#1&#3\\#2&#4\end{array}\right)}
+
+\newcommand{\bra}[1]{\left\langle#1\right|}
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\bracket}[2]{\left\langle#1|#2\right\rangle}
+\newcommand{\vectArr}[1]{\overrightarrow{#1}}
+
+\begin{document}
+ 
+\begin{introduction}
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at diam enim. Duis in porttitor ipsum, eu consequat urna. Fusce et massa eleifend, commodo ante ut, ultrices sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc iaculis ipsum metus. Curabitur orci dolor, sagittis ut magna vitae, dignissim sagittis leo. Praesent vel maximus lectus. Etiam tempor arcu ipsum, non fermentum nulla iaculis vel.
+\end{introduction}
+
+\vspace{10pt} 
+\tableofcontents
+\vspace{10pt}
+
+\section{Mauris eu eros}
+\subsection{Nam ut velit tincidunt}
+
+\begin{definition}
+    Etiam fringilla, nunc a vehicula aliquet, enim enim imperdiet turpis, ut vehicula massa sem et nisl. Aenean vel erat id mauris pretium cursus. Sed rhoncus id nisl ac commodo. Interdum. 
+\end{definition}
+
+\subsection{Donec commodo nunc}
+
+\section{Proin id turpis gravida}
+\subsection{Morbi sodales sapien sed justo}
+\subsection{Curabitur ornare nisi ac sem}
+\newpage
+\section{Mauris quis ante bibendum}
+\subsection{Cras scelerisque lectus}
+\subsection{Proin iaculis metus dapibus}
+
+
+\end{document}
