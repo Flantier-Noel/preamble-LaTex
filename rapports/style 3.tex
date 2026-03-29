@@ -1,0 +1,148 @@
+\documentclass[10pt,a4paper]{article}
+
+\title{In orci ut tincidunt}
+\author{VIVAMUS Lobortis - NULLA Ultrices}
+\date{MMXXV-MMXXVI}
+\def\thesupervisor{QUISQUE Aliquam}
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\title{\bfseries\huge\thetitle}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage[left=25mm, right=25mm]{geometry}
+\usepackage{stmaryrd}
+\usepackage{mathrsfs, mathabx}
+\usepackage{environ, ifthen}
+\usepackage{multicol}
+\usepackage{tocloft}
+\usepackage{tcolorbox}
+
+\setcounter{secnumdepth}{3}
+
+\makeatletter
+\def\@defaultNone{}
+\newcommand{\newblocktheorem}[2]{
+\newcounter{#1}
+\NewEnviron{#1}[1][\@defaultNone]{
+\ifthenelse{\equal{##1}{\@defaultNone}}{\def\@extTitle{}}{\def\@extTitle{(##1)}}
+\stepcounter{#1}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!white,title=#2 \arabic{#1}~: \@extTitle]
+    \BODY
+\end{tcolorbox}
+}}
+\newcommand{\alias}[3]{
+\NewEnviron{#1}[1][\@defaultNone]{
+\ifthenelse{\equal{##1}{\@defaultNone}}{\def\@extTitle{}}{\def\@extTitle{(##1)}}
+\stepcounter{#2}
+\begin{tcolorbox}[colback=black!5!white,colframe=black!75!white,title=#3 \arabic{#2}~: \@extTitle]
+    \BODY
+\end{tcolorbox}
+}}
+\makeatother
+
+\newblocktheorem{theoreme}{Théorème}
+\newblocktheorem{lemme}{Lemme}
+\newblocktheorem{corollaire}{Corollaire}
+
+\newblocktheorem{definition}{Définition}
+\alias{definitions}{definition}{Définitions}
+
+\theoremstyle{remark}
+\newtheorem{exemple}{Exemple}
+\newtheorem{exemples}[exemple]{Exemples}
+\newtheorem{remarque}{Remarque}
+\newtheorem{remarques}[remarque]{Remarques}
+
+\makeatletter
+\renewcommand{\@cftmaketoctitle}{}
+\makeatother
+\setlength\cftparskip{2pt}
+\cftsetindents{section}{1em}{2em}
+\cftsetindents{subsection}{2em}{2em}
+
+\AtBeginDocument{\maketitle
+\vspace{-15pt}{\footnotesize\raggedleft \thesupervisor
+
+}\vspace{10pt}}
+
+\renewcommand{\thesection}{\Roman{section})}
+\renewcommand{\thesubsection}{\arabic{subsection})}
+
+\NewEnviron{introduction}{
+\begin{center}
+    \begin{minipage}{16cm}
+    \textbf{Introduction.} \textit{\small\BODY}
+    \end{minipage}
+\end{center}
+}
+
+\newcommand*{\va}{V\!\!A}
+\renewcommand*{\Re}{\text{Re}}
+\renewcommand*{\Im}{\text{Im}}
+\newcommand*{\Arg}{\text{Arg}}
+\newcommand*{\Log}{\text{Log}}
+\newcommand{\tn}[1]{|\!|\!|#1|\!|\!|}
+\newcommand*{\Iff}{\Leftrightarrow}
+\newcommand*{\If}{\Leftarrow}
+\newcommand*{\So}{\Rightarrow}
+\renewcommand*{\arctan}{\text{Arctan }}
+
+\newcommand{\vect}[2]{\left(\!\!\begin{array}{c} #1\\#2 \end{array}\!\!\right)}
+\renewcommand{\matrix}[4]{\left(\begin{array}{cc}#1&#3\\#2&#4\end{array}\right)}
+
+\newcommand{\bra}[1]{\left\langle#1\right|}
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\bracket}[2]{\left\langle#1|#2\right\rangle}
+\newcommand{\vectArr}[1]{\overrightarrow{#1}}
+
+\begin{document}
+
+\begin{introduction}
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at diam enim. Duis in porttitor ipsum, eu consequat urna. Fusce et massa eleifend, commodo ante ut, ultrices sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc iaculis ipsum metus. Curabitur orci dolor, sagittis ut magna vitae, dignissim sagittis leo. Praesent vel maximus lectus. Etiam tempor arcu ipsum, non fermentum nulla iaculis vel.
+\end{introduction}
+
+\tableofcontents
+\vspace{10pt}
+
+\section{Mauris eu eros}
+\subsection{Nam ut velit tincidunt}
+
+\begin{definition}
+    Suspendisse laoreet malesuada pellentesque. Duis id sem id massa laoreet laoreet. Nullam non iaculis enim. Curabitur venenatis bibendum dui vel hendrerit. Duis consequat faucibus ullamcorper.  
+\end{definition}
+
+\begin{theoreme}
+    Praesent posuere ligula vel aliquet gravida. Cras hendrerit arcu eget aliquam facilisis. Fusce nisi turpis, dapibus et faucibus et, dictum eu nisl. Sed vitae tellus convallis, vestibulum lorem id, placerat turpis.
+\end{theoreme}
+
+\begin{definitions}[vehiculis]
+    \begin{itemize}
+        \item Etiam fringilla, nunc a vehicula aliquet, enim enim imperdiet turpis, ut vehicula massa sem et nisl. 
+        \item Aenean vel erat id mauris pretium cursus. 
+        \item Sed rhoncus id nisl ac commodo. Interdum. 
+    \end{itemize}
+\end{definitions}
+
+\begin{remarque}
+    Phasellus eu scelerisque massa. Integer non varius justo. Aliquam erat nunc, consectetur quis nunc a, placerat sagittis nulla. Nulla facilisi. Sed tincidunt nunc a malesuada euismod. 
+\end{remarque}
+
+\subsection{Donec commodo nunc}
+
+\section{Proin id turpis gravida}
+\subsection{Morbi sodales sapien sed justo}
+\subsection{Curabitur ornare nisi ac sem}
+\section{Mauris quis ante bibendum}
+\subsection{Cras scelerisque lectus}
+\subsection{Proin iaculis metus dapibus}
+
+
+\end{document}
