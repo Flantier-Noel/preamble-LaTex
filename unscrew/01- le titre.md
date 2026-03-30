@@ -59,7 +59,7 @@ Pour le style 1, la chose se corse : on ne va pas utiliser de ```\maketitle``` m
 >  {\parindent \z@ \centering \normalfont
 >    \hrule height 3pt \vskip 5\p@
 >    \hrule height 2pt \vskip 20\p@
->    \interlinepenalty\@M
+>    %\interlinepenalty\@M
 >    \Huge\bfseries \thetitle\par\nobreak
 >    \vskip 15\p@
 >    \hrule height 2pt \vskip 5\p@
@@ -84,7 +84,7 @@ Pour le style 1, la chose se corse : on ne va pas utiliser de ```\maketitle``` m
 > 
 > ```\hrule height 2pt \vskip 20\p@``` on dessine une ligne horizontale
 
-> ```\interlinepenalty\@M``` ?
+> ```%\interlinepenalty\@M``` inutile *a priori*
 
 > ```\Huge\bfseries \thetitle\par\nobreak``` on écrit le titre en gros (```\Huge```) et en gras (```bfseries```)
 
