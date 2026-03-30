@@ -104,3 +104,11 @@ Pour le style 1, la chose se corse : on ne va pas utiliser de ```\maketitle``` m
 
 >[!WARNING]
 > La commande ```\@makechapterhead``` n'existe que dans le type de document ```report```
+
+>[!IMPORTANT]
+> On redéfinit la commande ```\@makechapterhead``` avec un paramètre qui n'est pas utilisé dans cette commande car on fera un appel ```\chapter{\thetitle}``` qui demande bien un argument pour que tout fonctionne corectement (notemment l'interaction avec la table des matières)
+
+- On finit par ```\AtBeginDocument{\chapter{\thetitle}}``` afin de toujours commencer le document par le titre
+
+>[!NOTE]
+>En réalité, on utilise une commande plus complexe pour gérer l'interaction avec la table des matières. Cette dernière sera expliquée dans le document __02- la table des matières__
