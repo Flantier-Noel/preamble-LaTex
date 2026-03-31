@@ -11,6 +11,8 @@ De manière générale, on utilise la commande ```\tableofcontents``` qui foncti
 
 Dans le cas des rapports, on met la table des matières en début de document, ce qui ne pose pas de problème pour la classe ```article``` mais qui est plus ardu pour la classe ```report```. Pour gérer ce soucis, et modifier avec plus de liberté la table des matières, on utilise le package ```tocloft```.
 
+> ```\usepackage{tocloft}```
+
 En premier lieu, on cherche à enlever l'entête de la table des matière : le package ```tocloft``` le permet avec le code suivant
 
 >```
