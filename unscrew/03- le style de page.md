@@ -8,7 +8,7 @@ En premier lieu, la taille de la page et celle de la police par défaut est déf
 La taille de la police par défaut est ici mise à ```10pt``` et la page à la format A4 (```a4paper```)
 </details>
 
-## Les marges :
+### Les marges :
 
 Deux options s'offrent à nous :
 
@@ -51,7 +51,7 @@ Deux options s'offrent à nous :
 >```\setlength{\hoffset}{-32mm}``` on règle le décalage horizontal par défaut de la zone de texte
 </details>
 
-# L'entête de page :
+### L'entête de page :
 
 Dans le style 1 des rapports (par exemple), les pages sans titre s'affublent d'une entête précisant certaines métadonnées (titre, date, ...). Dans ce but, nous utilisons le code :
 
@@ -84,4 +84,26 @@ Dans le style 1 des rapports (par exemple), les pages sans titre s'affublent d'u
 > On utilise ici la valeur ```gris``` qui est définis plutôt avec la commande :
 > >```\definecolor{gris}{gray}{.5}```
 > 
-> On utilise aussi les valeurs ```\thedate```et ```\thetitle``` que l'on a précédemment stocké pour le titre (cf.**01- le titre**)
+> On utilise aussi les valeurs ```\thedate```et ```\thetitle``` que l'on a précédemment stocké pour le titre (cf. [**01- le titre**](https://github.com/Flantier-Noel/preamble-LaTex/blob/main/unscrew/01-%20le%20titre.md))
+
+### Le style des titres de section :
+
+Dans le style 2 des rapports, par exemple, on cherche à modifier l'affichage des sections et sous-sections. Dans ce but, on change l'affichage du compteur (action détaillée dans **04- les compteurs**). Ensuite on modifie la police et la disposition du titre de la partie, avec les codes suivants :
+
+>```
+>\makeatletter
+>\renewcommand
+>{\subsection}{\@startsection{subsection}{2}{0mm}
+>{0\baselineskip}{\baselineskip}
+>{\indent\large\bf}}
+>\makeatother
+>```
+
+>```
+>\makeatletter
+>\renewcommand
+>{\subsubsection}{\@startsection{subsubsection}{3}{0mm}
+>{\baselineskip}{\baselineskip}
+>{\indent\indent\bf}}
+>\makeatother
+>```
