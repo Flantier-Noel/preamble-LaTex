@@ -66,17 +66,22 @@ Dans le style 1 des rapports (par exemple), les pages sans titre s'affublent d'u
 <details>
 <summary><b>Détails ligne à ligne</b></summary>
   
->```pagestyle{fancy}```
+>```pagestyle{fancy}``` on utilise les bases fournies par le template ```fancy```
 
->```\renewcommand{\chaptermark}[1]{\markboth{#1}{}}```
+>```\renewcommand{\chaptermark}[1]{\markboth{#1}{}}``` ?
 
->```\rhead{\textcolor{gris}{\textit{\thedate}}}```
+>```\rhead{\textcolor{gris}{\textit{\thedate}}}``` on écrit la date (```\thedate```) en gris (```\textcoler{gris}{...}```) et en italique (```\textit{...}```) à gauche de l'entête (```\rhead{...}```)
+>
+>```\lhead{\textcolor{gris}{Phasellus laoreet}}``` on écrit ce que l'on souhaite en gris (```\textcoler{gris}{...}```) à droite de l'entête (```\lhead{...}```)
 
->```\lhead{\textcolor{gris}{Phasellus laoreet}}```
-
->```\chead{\textcolor{gris}{\thetitle}}```
+>```\chead{\textcolor{gris}{\thetitle}}``` on écrit le titre (```\thetitle```) en gris (```\textcoler{gris}{...}```) au centre de l'entête (```\chead{...}```)
 </details>
+
+>[!WARNING]
+> La commande ```\chaptermark``` n'existe que dans le mode ```report```
 
 >[!WARNING]
 > On utilise ici la valeur ```gris``` qui est définis plutôt avec la commande :
 > >```\definecolor{gris}{gray}{.5}```
+> 
+> On utilise aussi les valeurs ```\thedate```et ```\thetitle``` que l'on a précédemment stocké pour le titre (cf.**01- le titre**)
