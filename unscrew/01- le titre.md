@@ -111,4 +111,4 @@ Pour le style 1, la chose se corse : on ne va pas utiliser de ```\maketitle``` m
 - On finit par ```\AtBeginDocument{\chapter{\thetitle}}``` afin de toujours commencer le document par le titre
 
 >[!NOTE]
->En réalité, on utilise une commande plus complexe pour gérer l'interaction avec la table des matières. Cette dernière sera expliquée dans le document __02- la table des matières__
+>En réalité, on utilise une commande plus complexe pour gérer l'interaction avec la table des matières. Cette dernière sera expliquée dans le document [**02- la table des matières**](https://github.com/Flantier-Noel/preamble-LaTex/blob/main/unscrew/02-%20la%20table%20des%20mati%C3%A8res.md)
