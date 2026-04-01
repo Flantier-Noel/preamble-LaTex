@@ -88,7 +88,7 @@ Dans le style 1 des rapports (par exemple), les pages sans titre s'affublent d'u
 
 ### Le style des titres de section :
 
-Dans le style 2 des rapports, par exemple, on cherche à modifier l'affichage des sections et sous-sections. Dans ce but, on change l'affichage du compteur (action détaillée dans **04- les compteurs**). Ensuite on modifie la police et la disposition du titre de la partie, avec les codes suivants :
+Dans le style 2 des rapports, par exemple, on cherche à modifier l'affichage des sections et sous-sections. Dans ce but, on change l'affichage du compteur (action détaillée dans [**04- les compteurs**](https://github.com/Flantier-Noel/preamble-LaTex/blob/main/unscrew/04-%20les%20compteurs)). Ensuite on modifie la police et la disposition du titre de la partie, avec les codes suivants :
 
 >```
 >\makeatletter
